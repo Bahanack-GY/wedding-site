@@ -20,6 +20,8 @@ RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+# next/image writes optimized images to .next/cache at runtime
+RUN mkdir -p .next/cache && chown -R nextjs:nodejs .next
 # RSVP submissions are written here at runtime; mount a volume on /app/data to persist them
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 USER nextjs
