@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'BelindaAvenue';
+  src: url('/BelindaAvenue-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #2a1610; /* Deep traditional brown background */
+  --foreground: #fff9f2; /* Brighter cream for better text readability */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-sand: #b17646; /* 4th color: Caramel/Camel */
+  --color-sage: #8c6b65; /* 5th color: Dusty rose/Taupe */
+  --color-terracotta: #b5582f; /* 3rd color: Warm orange */
+  --color-burgundy: #7a3e2a; /* 2nd color: Rust brown */
+  --color-espresso: #3f2820; /* 1st color: Dark brown */
+  --color-background: #2a1610; /* Deep traditional brown background */
+  --color-cream: #fff9f2; /* Brighter cream for better text readability */
+  --color-foreground: var(--color-cream);
+  
+  --font-belinda: 'BelindaAvenue', serif;
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+  
+  /* Disable shadows and borders */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+  --shadow-inner: none;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
+
+/* Hide scrollbar for a cleaner luxury look (optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta); 
+}
+
